@@ -1,0 +1,1608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fmsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="fmsEntities1" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="configurations" EntityType="fmsModel.configuration" />
+    <EntitySet Name="quotation_autocomplete" EntityType="fmsModel.quotation_autocomplete" />
+    <EntitySet Name="users" EntityType="fmsModel.user" />
+    <EntitySet Name="quotations" EntityType="fmsModel.quotation" />
+    <EntitySet Name="quotation_default" EntityType="fmsModel.quotation_default" />
+    <EntitySet Name="quotations_history" EntityType="fmsModel.quotations_history" />
+  </EntityContainer>
+  <EntityType Name="configuration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="quot_sequence" Type="Int32" />
+  </EntityType>
+  <EntityType Name="quotation_autocomplete">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="category" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="label1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="unitprice1" Type="Decimal" />
+    <Property Name="unit1" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="label2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="unitprice2" Type="Decimal" />
+    <Property Name="created" Type="DateTime" />
+    <Property Name="create_by" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="modified" Type="DateTime" />
+    <Property Name="modify_by" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="is_deleted" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="pass" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="user_type" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="last_login" Type="DateTime" />
+    <Property Name="created" Type="DateTime" />
+    <Property Name="create_by" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="modified" Type="DateTime" />
+    <Property Name="modify_by" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="is_deleted" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="quotation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="file_number" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="customer_name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="fax" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="mobile" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="job_location" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="customer_record" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_quote" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_plan" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_site_measure" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_installation_booked" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_confirmation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_deposit" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_manufacture" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="sub_file" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="particulars" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="quotation_sent" />
+    <Property Type="DateTime" Name="plan_sent" />
+    <Property Type="String" Name="stud_height" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="finish_height" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="additional_notes" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ic_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_finishing_qty" />
+    <Property Type="String" Name="ic_finishing_unit" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_finishing_unitprice" />
+    <Property Type="Decimal" Name="ic_finishing_price" />
+    <Property Type="String" Name="ic_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_edge_qty" />
+    <Property Type="String" Name="ic_edge_unit" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_edge_unitprice" />
+    <Property Type="Decimal" Name="ic_edge_price" />
+    <Property Type="String" Name="ic_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_color_qty" />
+    <Property Type="String" Name="ic_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_color_unitprice" />
+    <Property Type="Decimal" Name="ic_color_price" />
+    <Property Type="String" Name="door_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_finishing_qty" />
+    <Property Type="String" Name="door_finishing_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_finishing_unitprice" />
+    <Property Type="Decimal" Name="door_finishing_price" />
+    <Property Type="String" Name="door_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_edge_qty" />
+    <Property Type="String" Name="door_edge_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_edge_unitprice" />
+    <Property Type="Decimal" Name="door_edge_price" />
+    <Property Type="String" Name="door_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_color_qty" />
+    <Property Type="String" Name="door_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_color_unitprice" />
+    <Property Type="Decimal" Name="door_color_price" />
+    <Property Type="String" Name="panel_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_finishing_qty" />
+    <Property Type="String" Name="panel_finishing_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_finishing_unitprice" />
+    <Property Type="Decimal" Name="panel_finishing_price" />
+    <Property Type="String" Name="panel_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_edge_qty" />
+    <Property Type="String" Name="panel_edge_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_edge_unitprice" />
+    <Property Type="Decimal" Name="panel_edge_price" />
+    <Property Type="String" Name="panel_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_color_qty" />
+    <Property Type="String" Name="panel_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_color_unitprice" />
+    <Property Type="Decimal" Name="panel_color_price" />
+    <Property Type="String" Name="df_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_finishing_qty" />
+    <Property Type="String" Name="df_finishing_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_finishing_unitprice" />
+    <Property Type="Decimal" Name="df_finishing_price" />
+    <Property Type="String" Name="df_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_edge_qty" />
+    <Property Type="String" Name="df_edge_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_edge_unitprice" />
+    <Property Type="Decimal" Name="df_edge_price" />
+    <Property Type="String" Name="df_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_color_qty" />
+    <Property Type="String" Name="df_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_color_unitprice" />
+    <Property Type="Decimal" Name="df_color_price" />
+    <Property Type="String" Name="up_to_celling" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_celling_qty" />
+    <Property Type="String" Name="up_to_celling_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_celling_unitprice" />
+    <Property Type="Decimal" Name="up_to_celling_price" />
+    <Property Type="String" Name="up_to_bulkhead" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_bulkhead_qty" />
+    <Property Type="String" Name="up_to_bulkhead_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_bulkhead_unitprice" />
+    <Property Type="Decimal" Name="up_to_bulkhead_price" />
+    <Property Type="String" Name="cornice" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="cornice_qty" />
+    <Property Type="String" Name="cornice_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="cornice_unitprice" />
+    <Property Type="Decimal" Name="cornice_price" />
+    <Property Type="String" Name="toekick_colour" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="toekick_colour_qty" />
+    <Property Type="String" Name="toekick_colour_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="toekick_colour_unitprice" />
+    <Property Type="Decimal" Name="toekick_colour_price" />
+    <Property Type="String" Name="floor_type" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="floor_installation" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="access" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_type1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price1" />
+    <Property Type="String" Name="appliance_type2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price2" />
+    <Property Type="String" Name="appliance_type3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price3" />
+    <Property Type="String" Name="appliance_type4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price4" />
+    <Property Type="String" Name="appliance_type5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price5" />
+    <Property Type="String" Name="appliance_type6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price6" />
+    <Property Type="String" Name="appliance_type7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price7" />
+    <Property Type="String" Name="appliance_type8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price8" />
+    <Property Type="String" Name="appliance_type9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price9" />
+    <Property Type="String" Name="appliance_type10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price10" />
+    <Property Type="String" Name="appliance_type11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price11" />
+    <Property Type="String" Name="appliance_type12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price12" />
+    <Property Type="String" Name="appliance_type13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price13" />
+    <Property Type="String" Name="appliance_type14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price14" />
+    <Property Type="String" Name="appliance_type15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price15" />
+    <Property Type="String" Name="appliance_type16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price16" />
+    <Property Type="String" Name="appliance_type17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price17" />
+    <Property Type="String" Name="appliance_type18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price18" />
+    <Property Type="String" Name="appliance_type19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price19" />
+    <Property Type="String" Name="appliance_type20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price20" />
+    <Property Type="String" Name="accessories_type1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model1" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty1" />
+    <Property Type="String" Name="accessories_unit1" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice1" />
+    <Property Type="Decimal" Name="accessories_price1" />
+    <Property Type="String" Name="accessories_type2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model2" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty2" />
+    <Property Type="String" Name="accessories_unit2" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice2" />
+    <Property Type="Decimal" Name="accessories_price2" />
+    <Property Type="String" Name="accessories_type3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model3" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty3" />
+    <Property Type="String" Name="accessories_unit3" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice3" />
+    <Property Type="Decimal" Name="accessories_price3" />
+    <Property Type="String" Name="accessories_type4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model4" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty4" />
+    <Property Type="String" Name="accessories_unit4" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice4" />
+    <Property Type="Decimal" Name="accessories_price4" />
+    <Property Type="String" Name="accessories_type5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model5" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty5" />
+    <Property Type="String" Name="accessories_unit5" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice5" />
+    <Property Type="Decimal" Name="accessories_price5" />
+    <Property Type="String" Name="accessories_type6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model6" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty6" />
+    <Property Type="String" Name="accessories_unit6" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice6" />
+    <Property Type="Decimal" Name="accessories_price6" />
+    <Property Type="String" Name="accessories_type7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model7" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty7" />
+    <Property Type="String" Name="accessories_unit7" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice7" />
+    <Property Type="Decimal" Name="accessories_price7" />
+    <Property Type="String" Name="accessories_type8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model8" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty8" />
+    <Property Type="String" Name="accessories_unit8" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice8" />
+    <Property Type="Decimal" Name="accessories_price8" />
+    <Property Type="String" Name="accessories_type9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model9" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty9" />
+    <Property Type="String" Name="accessories_unit9" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice9" />
+    <Property Type="Decimal" Name="accessories_price9" />
+    <Property Type="String" Name="accessories_type10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model10" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty10" />
+    <Property Type="String" Name="accessories_unit10" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice10" />
+    <Property Type="Decimal" Name="accessories_price10" />
+    <Property Type="String" Name="accessories_type11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model11" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty11" />
+    <Property Type="String" Name="accessories_unit11" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice11" />
+    <Property Type="Decimal" Name="accessories_price11" />
+    <Property Type="String" Name="accessories_type12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model12" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty12" />
+    <Property Type="String" Name="accessories_unit12" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice12" />
+    <Property Type="Decimal" Name="accessories_price12" />
+    <Property Type="String" Name="accessories_type13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model13" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty13" />
+    <Property Type="String" Name="accessories_unit13" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice13" />
+    <Property Type="Decimal" Name="accessories_price13" />
+    <Property Type="String" Name="accessories_type14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model14" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty14" />
+    <Property Type="String" Name="accessories_unit14" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice14" />
+    <Property Type="Decimal" Name="accessories_price14" />
+    <Property Type="String" Name="accessories_type15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model15" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty15" />
+    <Property Type="String" Name="accessories_unit15" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice15" />
+    <Property Type="Decimal" Name="accessories_price15" />
+    <Property Type="String" Name="accessories_type16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model16" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty16" />
+    <Property Type="String" Name="accessories_unit16" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice16" />
+    <Property Type="Decimal" Name="accessories_price16" />
+    <Property Type="String" Name="accessories_type17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model17" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty17" />
+    <Property Type="String" Name="accessories_unit17" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice17" />
+    <Property Type="Decimal" Name="accessories_price17" />
+    <Property Type="String" Name="accessories_type18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model18" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty18" />
+    <Property Type="String" Name="accessories_unit18" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice18" />
+    <Property Type="Decimal" Name="accessories_price18" />
+    <Property Type="String" Name="accessories_type19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model19" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty19" />
+    <Property Type="String" Name="accessories_unit19" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice19" />
+    <Property Type="Decimal" Name="accessories_price19" />
+    <Property Type="String" Name="accessories_type20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model20" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty20" />
+    <Property Type="String" Name="accessories_unit20" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice20" />
+    <Property Type="Decimal" Name="accessories_price20" />
+    <Property Type="String" Name="note_label" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_thickness" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="waterfall_quantity" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="waterfall_finish" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_range1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty1" />
+    <Property Type="String" Name="benchtop_unit1" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice1" />
+    <Property Type="Decimal" Name="benchtop_price1" />
+    <Property Type="Decimal" Name="benchtop_totalprice1" />
+    <Property Type="String" Name="benchtop_range2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty2" />
+    <Property Type="String" Name="benchtop_unit2" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice2" />
+    <Property Type="Decimal" Name="benchtop_price2" />
+    <Property Type="Decimal" Name="benchtop_totalprice2" />
+    <Property Type="String" Name="benchtop_range3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty3" />
+    <Property Type="String" Name="benchtop_unit3" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice3" />
+    <Property Type="Decimal" Name="benchtop_price3" />
+    <Property Type="Decimal" Name="benchtop_totalprice3" />
+    <Property Type="String" Name="benchtop_range4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty4" />
+    <Property Type="String" Name="benchtop_unit4" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice4" />
+    <Property Type="Decimal" Name="benchtop_price4" />
+    <Property Type="Decimal" Name="benchtop_totalprice4" />
+    <Property Type="String" Name="benchtop_range5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty5" />
+    <Property Type="String" Name="benchtop_unit5" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice5" />
+    <Property Type="Decimal" Name="benchtop_price5" />
+    <Property Type="Decimal" Name="benchtop_totalprice5" />
+    <Property Type="String" Name="benchtop_range6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty6" />
+    <Property Type="String" Name="benchtop_unit6" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice6" />
+    <Property Type="Decimal" Name="benchtop_price6" />
+    <Property Type="Decimal" Name="benchtop_totalprice6" />
+    <Property Type="String" Name="benchtop_range7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty7" />
+    <Property Type="String" Name="benchtop_unit7" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice7" />
+    <Property Type="Decimal" Name="benchtop_price7" />
+    <Property Type="Decimal" Name="benchtop_totalprice7" />
+    <Property Type="String" Name="benchtop_range8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty8" />
+    <Property Type="String" Name="benchtop_unit8" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice8" />
+    <Property Type="Decimal" Name="benchtop_price8" />
+    <Property Type="Decimal" Name="benchtop_totalprice8" />
+    <Property Type="String" Name="benchtop_range9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty9" />
+    <Property Type="String" Name="benchtop_unit9" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice9" />
+    <Property Type="Decimal" Name="benchtop_price9" />
+    <Property Type="Decimal" Name="benchtop_totalprice9" />
+    <Property Type="String" Name="benchtop_range10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty10" />
+    <Property Type="String" Name="benchtop_unit10" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice10" />
+    <Property Type="Decimal" Name="benchtop_price10" />
+    <Property Type="Decimal" Name="benchtop_totalprice10" />
+    <Property Type="String" Name="benchtop_range11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty11" />
+    <Property Type="String" Name="benchtop_unit11" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice11" />
+    <Property Type="Decimal" Name="benchtop_price11" />
+    <Property Type="Decimal" Name="benchtop_totalprice11" />
+    <Property Type="String" Name="benchtop_range12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty12" />
+    <Property Type="String" Name="benchtop_unit12" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice12" />
+    <Property Type="Decimal" Name="benchtop_price12" />
+    <Property Type="Decimal" Name="benchtop_totalprice12" />
+    <Property Type="String" Name="benchtop_range13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty13" />
+    <Property Type="String" Name="benchtop_unit13" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice13" />
+    <Property Type="Decimal" Name="benchtop_price13" />
+    <Property Type="Decimal" Name="benchtop_totalprice13" />
+    <Property Type="String" Name="benchtop_range14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty14" />
+    <Property Type="String" Name="benchtop_unit14" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice14" />
+    <Property Type="Decimal" Name="benchtop_price14" />
+    <Property Type="Decimal" Name="benchtop_totalprice14" />
+    <Property Type="String" Name="benchtop_range15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty15" />
+    <Property Type="String" Name="benchtop_unit15" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice15" />
+    <Property Type="Decimal" Name="benchtop_price15" />
+    <Property Type="Decimal" Name="benchtop_totalprice15" />
+    <Property Type="String" Name="benchtop_range16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty16" />
+    <Property Type="String" Name="benchtop_unit16" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice16" />
+    <Property Type="Decimal" Name="benchtop_price16" />
+    <Property Type="Decimal" Name="benchtop_totalprice16" />
+    <Property Type="String" Name="benchtop_range17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty17" />
+    <Property Type="String" Name="benchtop_unit17" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice17" />
+    <Property Type="Decimal" Name="benchtop_price17" />
+    <Property Type="Decimal" Name="benchtop_totalprice17" />
+    <Property Type="String" Name="benchtop_range18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty18" />
+    <Property Type="String" Name="benchtop_unit18" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice18" />
+    <Property Type="Decimal" Name="benchtop_price18" />
+    <Property Type="Decimal" Name="benchtop_totalprice18" />
+    <Property Type="String" Name="benchtop_range19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty19" />
+    <Property Type="String" Name="benchtop_unit19" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice19" />
+    <Property Type="Decimal" Name="benchtop_price19" />
+    <Property Type="Decimal" Name="benchtop_totalprice19" />
+    <Property Type="String" Name="benchtop_range20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty20" />
+    <Property Type="String" Name="benchtop_unit20" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice20" />
+    <Property Type="Decimal" Name="benchtop_price20" />
+    <Property Type="Decimal" Name="benchtop_totalprice20" />
+    <Property Type="Decimal" Name="discount" />
+    <Property Type="String" Name="price_title" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="total_cost" />
+    <Property Type="Decimal" Name="C1st_pay_percent" />
+    <Property Type="Decimal" Name="C1st_pay_amount_required" />
+    <Property Type="Decimal" Name="C1st_pay_amount_paid" />
+    <Property Type="DateTime" Name="C1st_pay_date" />
+    <Property Type="Decimal" Name="C2nd_pay_percent" />
+    <Property Type="Decimal" Name="C2nd_pay_amount_required" />
+    <Property Type="Decimal" Name="C2nd_pay_amount_paid" />
+    <Property Type="DateTime" Name="C2nd_pay_date" />
+    <Property Type="Decimal" Name="C3rd_pay_percent" />
+    <Property Type="Decimal" Name="C3rd_pay_amount_required" />
+    <Property Type="Decimal" Name="C3rd_pay_amount_paid" />
+    <Property Type="DateTime" Name="C3rd_pay_date" />
+    <Property Type="DateTime" Name="installation_date" />
+    <Property Type="DateTime" Name="estimated_date" />
+    <Property Type="DateTime" Name="delivery_date" />
+    <Property Type="String" Name="final_note" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created" />
+    <Property Type="String" Name="create_by" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="modified" />
+    <Property Type="String" Name="modify_by" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="is_deleted" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery1" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery2" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery3" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery4" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery5" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery6" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery7" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery8" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery9" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery10" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery11" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery12" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery13" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery14" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery15" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery16" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery17" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery18" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery19" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery20" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="quotation_default">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" />
+    <Property Type="String" Name="file_number" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="customer_name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="fax" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="mobile" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="job_location" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="customer_record" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_quote" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_plan" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_site_measure" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_installation_booked" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_confirmation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_deposit" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_manufacture" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="sub_file" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="particulars" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="quotation_sent" />
+    <Property Type="DateTime" Name="plan_sent" />
+    <Property Type="String" Name="stud_height" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="finish_height" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="additional_notes" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ic_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_finishing_qty" />
+    <Property Type="String" Name="ic_finishing_unit" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_finishing_unitprice" />
+    <Property Type="Decimal" Name="ic_finishing_price" />
+    <Property Type="String" Name="ic_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_edge_qty" />
+    <Property Type="String" Name="ic_edge_unit" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_edge_unitprice" />
+    <Property Type="Decimal" Name="ic_edge_price" />
+    <Property Type="String" Name="ic_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_color_qty" />
+    <Property Type="String" Name="ic_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_color_unitprice" />
+    <Property Type="Decimal" Name="ic_color_price" />
+    <Property Type="String" Name="door_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_finishing_qty" />
+    <Property Type="String" Name="door_finishing_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_finishing_unitprice" />
+    <Property Type="Decimal" Name="door_finishing_price" />
+    <Property Type="String" Name="door_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_edge_qty" />
+    <Property Type="String" Name="door_edge_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_edge_unitprice" />
+    <Property Type="Decimal" Name="door_edge_price" />
+    <Property Type="String" Name="door_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_color_qty" />
+    <Property Type="String" Name="door_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_color_unitprice" />
+    <Property Type="Decimal" Name="door_color_price" />
+    <Property Type="String" Name="panel_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_finishing_qty" />
+    <Property Type="String" Name="panel_finishing_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_finishing_unitprice" />
+    <Property Type="Decimal" Name="panel_finishing_price" />
+    <Property Type="String" Name="panel_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_edge_qty" />
+    <Property Type="String" Name="panel_edge_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_edge_unitprice" />
+    <Property Type="Decimal" Name="panel_edge_price" />
+    <Property Type="String" Name="panel_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_color_qty" />
+    <Property Type="String" Name="panel_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_color_unitprice" />
+    <Property Type="Decimal" Name="panel_color_price" />
+    <Property Type="String" Name="df_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_finishing_qty" />
+    <Property Type="String" Name="df_finishing_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_finishing_unitprice" />
+    <Property Type="Decimal" Name="df_finishing_price" />
+    <Property Type="String" Name="df_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_edge_qty" />
+    <Property Type="String" Name="df_edge_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_edge_unitprice" />
+    <Property Type="Decimal" Name="df_edge_price" />
+    <Property Type="String" Name="df_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_color_qty" />
+    <Property Type="String" Name="df_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_color_unitprice" />
+    <Property Type="Decimal" Name="df_color_price" />
+    <Property Type="String" Name="up_to_celling" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_celling_qty" />
+    <Property Type="String" Name="up_to_celling_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_celling_unitprice" />
+    <Property Type="Decimal" Name="up_to_celling_price" />
+    <Property Type="String" Name="up_to_bulkhead" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_bulkhead_qty" />
+    <Property Type="String" Name="up_to_bulkhead_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_bulkhead_unitprice" />
+    <Property Type="Decimal" Name="up_to_bulkhead_price" />
+    <Property Type="String" Name="cornice" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="cornice_qty" />
+    <Property Type="String" Name="cornice_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="cornice_unitprice" />
+    <Property Type="Decimal" Name="cornice_price" />
+    <Property Type="String" Name="toekick_colour" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="toekick_colour_qty" />
+    <Property Type="String" Name="toekick_colour_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="toekick_colour_unitprice" />
+    <Property Type="Decimal" Name="toekick_colour_price" />
+    <Property Type="String" Name="floor_type" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="floor_installation" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="access" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_type1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price1" />
+    <Property Type="String" Name="appliance_type2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price2" />
+    <Property Type="String" Name="appliance_type3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price3" />
+    <Property Type="String" Name="appliance_type4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price4" />
+    <Property Type="String" Name="appliance_type5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price5" />
+    <Property Type="String" Name="appliance_type6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price6" />
+    <Property Type="String" Name="appliance_type7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price7" />
+    <Property Type="String" Name="appliance_type8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price8" />
+    <Property Type="String" Name="appliance_type9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price9" />
+    <Property Type="String" Name="appliance_type10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price10" />
+    <Property Type="String" Name="appliance_type11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price11" />
+    <Property Type="String" Name="appliance_type12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price12" />
+    <Property Type="String" Name="appliance_type13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price13" />
+    <Property Type="String" Name="appliance_type14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price14" />
+    <Property Type="String" Name="appliance_type15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price15" />
+    <Property Type="String" Name="appliance_type16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price16" />
+    <Property Type="String" Name="appliance_type17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price17" />
+    <Property Type="String" Name="appliance_type18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price18" />
+    <Property Type="String" Name="appliance_type19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price19" />
+    <Property Type="String" Name="appliance_type20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price20" />
+    <Property Type="String" Name="accessories_type1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model1" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty1" />
+    <Property Type="String" Name="accessories_unit1" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice1" />
+    <Property Type="Decimal" Name="accessories_price1" />
+    <Property Type="String" Name="accessories_type2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model2" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty2" />
+    <Property Type="String" Name="accessories_unit2" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice2" />
+    <Property Type="Decimal" Name="accessories_price2" />
+    <Property Type="String" Name="accessories_type3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model3" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty3" />
+    <Property Type="String" Name="accessories_unit3" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice3" />
+    <Property Type="Decimal" Name="accessories_price3" />
+    <Property Type="String" Name="accessories_type4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model4" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty4" />
+    <Property Type="String" Name="accessories_unit4" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice4" />
+    <Property Type="Decimal" Name="accessories_price4" />
+    <Property Type="String" Name="accessories_type5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model5" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty5" />
+    <Property Type="String" Name="accessories_unit5" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice5" />
+    <Property Type="Decimal" Name="accessories_price5" />
+    <Property Type="String" Name="accessories_type6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model6" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty6" />
+    <Property Type="String" Name="accessories_unit6" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice6" />
+    <Property Type="Decimal" Name="accessories_price6" />
+    <Property Type="String" Name="accessories_type7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model7" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty7" />
+    <Property Type="String" Name="accessories_unit7" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice7" />
+    <Property Type="Decimal" Name="accessories_price7" />
+    <Property Type="String" Name="accessories_type8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model8" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty8" />
+    <Property Type="String" Name="accessories_unit8" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice8" />
+    <Property Type="Decimal" Name="accessories_price8" />
+    <Property Type="String" Name="accessories_type9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model9" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty9" />
+    <Property Type="String" Name="accessories_unit9" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice9" />
+    <Property Type="Decimal" Name="accessories_price9" />
+    <Property Type="String" Name="accessories_type10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model10" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty10" />
+    <Property Type="String" Name="accessories_unit10" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice10" />
+    <Property Type="Decimal" Name="accessories_price10" />
+    <Property Type="String" Name="accessories_type11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model11" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty11" />
+    <Property Type="String" Name="accessories_unit11" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice11" />
+    <Property Type="Decimal" Name="accessories_price11" />
+    <Property Type="String" Name="accessories_type12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model12" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty12" />
+    <Property Type="String" Name="accessories_unit12" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice12" />
+    <Property Type="Decimal" Name="accessories_price12" />
+    <Property Type="String" Name="accessories_type13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model13" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty13" />
+    <Property Type="String" Name="accessories_unit13" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice13" />
+    <Property Type="Decimal" Name="accessories_price13" />
+    <Property Type="String" Name="accessories_type14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model14" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty14" />
+    <Property Type="String" Name="accessories_unit14" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice14" />
+    <Property Type="Decimal" Name="accessories_price14" />
+    <Property Type="String" Name="accessories_type15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model15" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty15" />
+    <Property Type="String" Name="accessories_unit15" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice15" />
+    <Property Type="Decimal" Name="accessories_price15" />
+    <Property Type="String" Name="accessories_type16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model16" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty16" />
+    <Property Type="String" Name="accessories_unit16" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice16" />
+    <Property Type="Decimal" Name="accessories_price16" />
+    <Property Type="String" Name="accessories_type17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model17" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty17" />
+    <Property Type="String" Name="accessories_unit17" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice17" />
+    <Property Type="Decimal" Name="accessories_price17" />
+    <Property Type="String" Name="accessories_type18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model18" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty18" />
+    <Property Type="String" Name="accessories_unit18" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice18" />
+    <Property Type="Decimal" Name="accessories_price18" />
+    <Property Type="String" Name="accessories_type19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model19" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty19" />
+    <Property Type="String" Name="accessories_unit19" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice19" />
+    <Property Type="Decimal" Name="accessories_price19" />
+    <Property Type="String" Name="accessories_type20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model20" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty20" />
+    <Property Type="String" Name="accessories_unit20" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice20" />
+    <Property Type="Decimal" Name="accessories_price20" />
+    <Property Type="String" Name="note_label" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_thickness" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="waterfall_quantity" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="waterfall_finish" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_range1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty1" />
+    <Property Type="String" Name="benchtop_unit1" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice1" />
+    <Property Type="Decimal" Name="benchtop_price1" />
+    <Property Type="Decimal" Name="benchtop_totalprice1" />
+    <Property Type="String" Name="benchtop_range2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty2" />
+    <Property Type="String" Name="benchtop_unit2" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice2" />
+    <Property Type="Decimal" Name="benchtop_price2" />
+    <Property Type="Decimal" Name="benchtop_totalprice2" />
+    <Property Type="String" Name="benchtop_range3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty3" />
+    <Property Type="String" Name="benchtop_unit3" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice3" />
+    <Property Type="Decimal" Name="benchtop_price3" />
+    <Property Type="Decimal" Name="benchtop_totalprice3" />
+    <Property Type="String" Name="benchtop_range4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty4" />
+    <Property Type="String" Name="benchtop_unit4" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice4" />
+    <Property Type="Decimal" Name="benchtop_price4" />
+    <Property Type="Decimal" Name="benchtop_totalprice4" />
+    <Property Type="String" Name="benchtop_range5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty5" />
+    <Property Type="String" Name="benchtop_unit5" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice5" />
+    <Property Type="Decimal" Name="benchtop_price5" />
+    <Property Type="Decimal" Name="benchtop_totalprice5" />
+    <Property Type="String" Name="benchtop_range6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty6" />
+    <Property Type="String" Name="benchtop_unit6" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice6" />
+    <Property Type="Decimal" Name="benchtop_price6" />
+    <Property Type="Decimal" Name="benchtop_totalprice6" />
+    <Property Type="String" Name="benchtop_range7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty7" />
+    <Property Type="String" Name="benchtop_unit7" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice7" />
+    <Property Type="Decimal" Name="benchtop_price7" />
+    <Property Type="Decimal" Name="benchtop_totalprice7" />
+    <Property Type="String" Name="benchtop_range8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty8" />
+    <Property Type="String" Name="benchtop_unit8" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice8" />
+    <Property Type="Decimal" Name="benchtop_price8" />
+    <Property Type="Decimal" Name="benchtop_totalprice8" />
+    <Property Type="String" Name="benchtop_range9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty9" />
+    <Property Type="String" Name="benchtop_unit9" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice9" />
+    <Property Type="Decimal" Name="benchtop_price9" />
+    <Property Type="Decimal" Name="benchtop_totalprice9" />
+    <Property Type="String" Name="benchtop_range10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty10" />
+    <Property Type="String" Name="benchtop_unit10" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice10" />
+    <Property Type="Decimal" Name="benchtop_price10" />
+    <Property Type="Decimal" Name="benchtop_totalprice10" />
+    <Property Type="String" Name="benchtop_range11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty11" />
+    <Property Type="String" Name="benchtop_unit11" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice11" />
+    <Property Type="Decimal" Name="benchtop_price11" />
+    <Property Type="Decimal" Name="benchtop_totalprice11" />
+    <Property Type="String" Name="benchtop_range12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty12" />
+    <Property Type="String" Name="benchtop_unit12" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice12" />
+    <Property Type="Decimal" Name="benchtop_price12" />
+    <Property Type="Decimal" Name="benchtop_totalprice12" />
+    <Property Type="String" Name="benchtop_range13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty13" />
+    <Property Type="String" Name="benchtop_unit13" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice13" />
+    <Property Type="Decimal" Name="benchtop_price13" />
+    <Property Type="Decimal" Name="benchtop_totalprice13" />
+    <Property Type="String" Name="benchtop_range14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty14" />
+    <Property Type="String" Name="benchtop_unit14" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice14" />
+    <Property Type="Decimal" Name="benchtop_price14" />
+    <Property Type="Decimal" Name="benchtop_totalprice14" />
+    <Property Type="String" Name="benchtop_range15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty15" />
+    <Property Type="String" Name="benchtop_unit15" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice15" />
+    <Property Type="Decimal" Name="benchtop_price15" />
+    <Property Type="Decimal" Name="benchtop_totalprice15" />
+    <Property Type="String" Name="benchtop_range16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty16" />
+    <Property Type="String" Name="benchtop_unit16" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice16" />
+    <Property Type="Decimal" Name="benchtop_price16" />
+    <Property Type="Decimal" Name="benchtop_totalprice16" />
+    <Property Type="String" Name="benchtop_range17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty17" />
+    <Property Type="String" Name="benchtop_unit17" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice17" />
+    <Property Type="Decimal" Name="benchtop_price17" />
+    <Property Type="Decimal" Name="benchtop_totalprice17" />
+    <Property Type="String" Name="benchtop_range18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty18" />
+    <Property Type="String" Name="benchtop_unit18" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice18" />
+    <Property Type="Decimal" Name="benchtop_price18" />
+    <Property Type="Decimal" Name="benchtop_totalprice18" />
+    <Property Type="String" Name="benchtop_range19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty19" />
+    <Property Type="String" Name="benchtop_unit19" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice19" />
+    <Property Type="Decimal" Name="benchtop_price19" />
+    <Property Type="Decimal" Name="benchtop_totalprice19" />
+    <Property Type="String" Name="benchtop_range20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty20" />
+    <Property Type="String" Name="benchtop_unit20" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice20" />
+    <Property Type="Decimal" Name="benchtop_price20" />
+    <Property Type="Decimal" Name="benchtop_totalprice20" />
+    <Property Type="Decimal" Name="discount" />
+    <Property Type="String" Name="price_title" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="total_cost" />
+    <Property Type="Decimal" Name="C1st_pay_percent" />
+    <Property Type="Decimal" Name="C1st_pay_amount_required" />
+    <Property Type="Decimal" Name="C1st_pay_amount_paid" />
+    <Property Type="DateTime" Name="C1st_pay_date" />
+    <Property Type="Decimal" Name="C2nd_pay_percent" />
+    <Property Type="Decimal" Name="C2nd_pay_amount_required" />
+    <Property Type="Decimal" Name="C2nd_pay_amount_paid" />
+    <Property Type="DateTime" Name="C2nd_pay_date" />
+    <Property Type="Decimal" Name="C3rd_pay_percent" />
+    <Property Type="Decimal" Name="C3rd_pay_amount_required" />
+    <Property Type="Decimal" Name="C3rd_pay_amount_paid" />
+    <Property Type="DateTime" Name="C3rd_pay_date" />
+    <Property Type="DateTime" Name="installation_date" />
+    <Property Type="DateTime" Name="estimated_date" />
+    <Property Type="DateTime" Name="delivery_date" />
+    <Property Type="String" Name="final_note" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created" />
+    <Property Type="String" Name="create_by" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="modified" />
+    <Property Type="String" Name="modify_by" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="is_deleted" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery1" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery2" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery3" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery4" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery5" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery6" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery7" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery8" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery9" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery10" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery11" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery12" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery13" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery14" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery15" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery16" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery17" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery18" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery19" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery20" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="quotations_history">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="file_number" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="customer_name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="fax" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="mobile" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="job_location" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="customer_record" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_quote" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_plan" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_site_measure" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_installation_booked" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_confirmation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_deposit" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="proc_manufacture" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="sub_file" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="particulars" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="quotation_sent" />
+    <Property Type="DateTime" Name="plan_sent" />
+    <Property Type="String" Name="stud_height" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="finish_height" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="additional_notes" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ic_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_finishing_qty" />
+    <Property Type="String" Name="ic_finishing_unit" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_finishing_unitprice" />
+    <Property Type="Decimal" Name="ic_finishing_price" />
+    <Property Type="String" Name="ic_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_edge_qty" />
+    <Property Type="String" Name="ic_edge_unit" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_edge_unitprice" />
+    <Property Type="Decimal" Name="ic_edge_price" />
+    <Property Type="String" Name="ic_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_color_qty" />
+    <Property Type="String" Name="ic_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ic_color_unitprice" />
+    <Property Type="Decimal" Name="ic_color_price" />
+    <Property Type="String" Name="door_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_finishing_qty" />
+    <Property Type="String" Name="door_finishing_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_finishing_unitprice" />
+    <Property Type="Decimal" Name="door_finishing_price" />
+    <Property Type="String" Name="door_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_edge_qty" />
+    <Property Type="String" Name="door_edge_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_edge_unitprice" />
+    <Property Type="Decimal" Name="door_edge_price" />
+    <Property Type="String" Name="door_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_color_qty" />
+    <Property Type="String" Name="door_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="door_color_unitprice" />
+    <Property Type="Decimal" Name="door_color_price" />
+    <Property Type="String" Name="panel_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_finishing_qty" />
+    <Property Type="String" Name="panel_finishing_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_finishing_unitprice" />
+    <Property Type="Decimal" Name="panel_finishing_price" />
+    <Property Type="String" Name="panel_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_edge_qty" />
+    <Property Type="String" Name="panel_edge_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_edge_unitprice" />
+    <Property Type="Decimal" Name="panel_edge_price" />
+    <Property Type="String" Name="panel_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_color_qty" />
+    <Property Type="String" Name="panel_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="panel_color_unitprice" />
+    <Property Type="Decimal" Name="panel_color_price" />
+    <Property Type="String" Name="df_finishing" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_finishing_qty" />
+    <Property Type="String" Name="df_finishing_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_finishing_unitprice" />
+    <Property Type="Decimal" Name="df_finishing_price" />
+    <Property Type="String" Name="df_edge" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_edge_qty" />
+    <Property Type="String" Name="df_edge_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_edge_unitprice" />
+    <Property Type="Decimal" Name="df_edge_price" />
+    <Property Type="String" Name="df_color" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_color_qty" />
+    <Property Type="String" Name="df_color_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="df_color_unitprice" />
+    <Property Type="Decimal" Name="df_color_price" />
+    <Property Type="String" Name="up_to_celling" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_celling_qty" />
+    <Property Type="String" Name="up_to_celling_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_celling_unitprice" />
+    <Property Type="Decimal" Name="up_to_celling_price" />
+    <Property Type="String" Name="up_to_bulkhead" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_bulkhead_qty" />
+    <Property Type="String" Name="up_to_bulkhead_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="up_to_bulkhead_unitprice" />
+    <Property Type="Decimal" Name="up_to_bulkhead_price" />
+    <Property Type="String" Name="cornice" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="cornice_qty" />
+    <Property Type="String" Name="cornice_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="cornice_unitprice" />
+    <Property Type="Decimal" Name="cornice_price" />
+    <Property Type="String" Name="toekick_colour" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="toekick_colour_qty" />
+    <Property Type="String" Name="toekick_colour_unit" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="toekick_colour_unitprice" />
+    <Property Type="Decimal" Name="toekick_colour_price" />
+    <Property Type="String" Name="floor_type" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="floor_installation" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="access" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_type1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price1" />
+    <Property Type="String" Name="appliance_type2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price2" />
+    <Property Type="String" Name="appliance_type3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price3" />
+    <Property Type="String" Name="appliance_type4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price4" />
+    <Property Type="String" Name="appliance_type5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price5" />
+    <Property Type="String" Name="appliance_type6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price6" />
+    <Property Type="String" Name="appliance_type7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price7" />
+    <Property Type="String" Name="appliance_type8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price8" />
+    <Property Type="String" Name="appliance_type9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price9" />
+    <Property Type="String" Name="appliance_type10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price10" />
+    <Property Type="String" Name="appliance_type11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price11" />
+    <Property Type="String" Name="appliance_type12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price12" />
+    <Property Type="String" Name="appliance_type13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price13" />
+    <Property Type="String" Name="appliance_type14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price14" />
+    <Property Type="String" Name="appliance_type15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price15" />
+    <Property Type="String" Name="appliance_type16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price16" />
+    <Property Type="String" Name="appliance_type17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price17" />
+    <Property Type="String" Name="appliance_type18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price18" />
+    <Property Type="String" Name="appliance_type19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price19" />
+    <Property Type="String" Name="appliance_type20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_model20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_dimension20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="appliance_price20" />
+    <Property Type="String" Name="accessories_type1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model1" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty1" />
+    <Property Type="String" Name="accessories_unit1" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice1" />
+    <Property Type="Decimal" Name="accessories_price1" />
+    <Property Type="String" Name="accessories_type2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model2" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty2" />
+    <Property Type="String" Name="accessories_unit2" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice2" />
+    <Property Type="Decimal" Name="accessories_price2" />
+    <Property Type="String" Name="accessories_type3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model3" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty3" />
+    <Property Type="String" Name="accessories_unit3" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice3" />
+    <Property Type="Decimal" Name="accessories_price3" />
+    <Property Type="String" Name="accessories_type4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model4" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty4" />
+    <Property Type="String" Name="accessories_unit4" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice4" />
+    <Property Type="Decimal" Name="accessories_price4" />
+    <Property Type="String" Name="accessories_type5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model5" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty5" />
+    <Property Type="String" Name="accessories_unit5" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice5" />
+    <Property Type="Decimal" Name="accessories_price5" />
+    <Property Type="String" Name="accessories_type6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model6" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty6" />
+    <Property Type="String" Name="accessories_unit6" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice6" />
+    <Property Type="Decimal" Name="accessories_price6" />
+    <Property Type="String" Name="accessories_type7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model7" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty7" />
+    <Property Type="String" Name="accessories_unit7" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice7" />
+    <Property Type="Decimal" Name="accessories_price7" />
+    <Property Type="String" Name="accessories_type8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model8" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty8" />
+    <Property Type="String" Name="accessories_unit8" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice8" />
+    <Property Type="Decimal" Name="accessories_price8" />
+    <Property Type="String" Name="accessories_type9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model9" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty9" />
+    <Property Type="String" Name="accessories_unit9" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice9" />
+    <Property Type="Decimal" Name="accessories_price9" />
+    <Property Type="String" Name="accessories_type10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model10" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty10" />
+    <Property Type="String" Name="accessories_unit10" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice10" />
+    <Property Type="Decimal" Name="accessories_price10" />
+    <Property Type="String" Name="accessories_type11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model11" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty11" />
+    <Property Type="String" Name="accessories_unit11" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice11" />
+    <Property Type="Decimal" Name="accessories_price11" />
+    <Property Type="String" Name="accessories_type12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model12" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty12" />
+    <Property Type="String" Name="accessories_unit12" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice12" />
+    <Property Type="Decimal" Name="accessories_price12" />
+    <Property Type="String" Name="accessories_type13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model13" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty13" />
+    <Property Type="String" Name="accessories_unit13" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice13" />
+    <Property Type="Decimal" Name="accessories_price13" />
+    <Property Type="String" Name="accessories_type14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model14" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty14" />
+    <Property Type="String" Name="accessories_unit14" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice14" />
+    <Property Type="Decimal" Name="accessories_price14" />
+    <Property Type="String" Name="accessories_type15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model15" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty15" />
+    <Property Type="String" Name="accessories_unit15" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice15" />
+    <Property Type="Decimal" Name="accessories_price15" />
+    <Property Type="String" Name="accessories_type16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model16" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty16" />
+    <Property Type="String" Name="accessories_unit16" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice16" />
+    <Property Type="Decimal" Name="accessories_price16" />
+    <Property Type="String" Name="accessories_type17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model17" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty17" />
+    <Property Type="String" Name="accessories_unit17" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice17" />
+    <Property Type="Decimal" Name="accessories_price17" />
+    <Property Type="String" Name="accessories_type18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model18" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty18" />
+    <Property Type="String" Name="accessories_unit18" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice18" />
+    <Property Type="Decimal" Name="accessories_price18" />
+    <Property Type="String" Name="accessories_type19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model19" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty19" />
+    <Property Type="String" Name="accessories_unit19" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice19" />
+    <Property Type="Decimal" Name="accessories_price19" />
+    <Property Type="String" Name="accessories_type20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_model20" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="accessories_options20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_qty20" />
+    <Property Type="String" Name="accessories_unit20" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="accessories_unitPrice20" />
+    <Property Type="Decimal" Name="accessories_price20" />
+    <Property Type="String" Name="note_label" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_thickness" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="waterfall_quantity" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="waterfall_finish" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_range1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color1" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty1" />
+    <Property Type="String" Name="benchtop_unit1" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice1" />
+    <Property Type="Decimal" Name="benchtop_price1" />
+    <Property Type="Decimal" Name="benchtop_totalprice1" />
+    <Property Type="String" Name="benchtop_range2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color2" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty2" />
+    <Property Type="String" Name="benchtop_unit2" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice2" />
+    <Property Type="Decimal" Name="benchtop_price2" />
+    <Property Type="Decimal" Name="benchtop_totalprice2" />
+    <Property Type="String" Name="benchtop_range3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color3" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty3" />
+    <Property Type="String" Name="benchtop_unit3" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice3" />
+    <Property Type="Decimal" Name="benchtop_price3" />
+    <Property Type="Decimal" Name="benchtop_totalprice3" />
+    <Property Type="String" Name="benchtop_range4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color4" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty4" />
+    <Property Type="String" Name="benchtop_unit4" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice4" />
+    <Property Type="Decimal" Name="benchtop_price4" />
+    <Property Type="Decimal" Name="benchtop_totalprice4" />
+    <Property Type="String" Name="benchtop_range5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color5" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty5" />
+    <Property Type="String" Name="benchtop_unit5" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice5" />
+    <Property Type="Decimal" Name="benchtop_price5" />
+    <Property Type="Decimal" Name="benchtop_totalprice5" />
+    <Property Type="String" Name="benchtop_range6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color6" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty6" />
+    <Property Type="String" Name="benchtop_unit6" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice6" />
+    <Property Type="Decimal" Name="benchtop_price6" />
+    <Property Type="Decimal" Name="benchtop_totalprice6" />
+    <Property Type="String" Name="benchtop_range7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color7" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty7" />
+    <Property Type="String" Name="benchtop_unit7" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice7" />
+    <Property Type="Decimal" Name="benchtop_price7" />
+    <Property Type="Decimal" Name="benchtop_totalprice7" />
+    <Property Type="String" Name="benchtop_range8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color8" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty8" />
+    <Property Type="String" Name="benchtop_unit8" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice8" />
+    <Property Type="Decimal" Name="benchtop_price8" />
+    <Property Type="Decimal" Name="benchtop_totalprice8" />
+    <Property Type="String" Name="benchtop_range9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color9" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty9" />
+    <Property Type="String" Name="benchtop_unit9" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice9" />
+    <Property Type="Decimal" Name="benchtop_price9" />
+    <Property Type="Decimal" Name="benchtop_totalprice9" />
+    <Property Type="String" Name="benchtop_range10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color10" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty10" />
+    <Property Type="String" Name="benchtop_unit10" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice10" />
+    <Property Type="Decimal" Name="benchtop_price10" />
+    <Property Type="Decimal" Name="benchtop_totalprice10" />
+    <Property Type="String" Name="benchtop_range11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color11" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty11" />
+    <Property Type="String" Name="benchtop_unit11" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice11" />
+    <Property Type="Decimal" Name="benchtop_price11" />
+    <Property Type="Decimal" Name="benchtop_totalprice11" />
+    <Property Type="String" Name="benchtop_range12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color12" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty12" />
+    <Property Type="String" Name="benchtop_unit12" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice12" />
+    <Property Type="Decimal" Name="benchtop_price12" />
+    <Property Type="Decimal" Name="benchtop_totalprice12" />
+    <Property Type="String" Name="benchtop_range13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color13" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty13" />
+    <Property Type="String" Name="benchtop_unit13" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice13" />
+    <Property Type="Decimal" Name="benchtop_price13" />
+    <Property Type="Decimal" Name="benchtop_totalprice13" />
+    <Property Type="String" Name="benchtop_range14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color14" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty14" />
+    <Property Type="String" Name="benchtop_unit14" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice14" />
+    <Property Type="Decimal" Name="benchtop_price14" />
+    <Property Type="Decimal" Name="benchtop_totalprice14" />
+    <Property Type="String" Name="benchtop_range15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color15" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty15" />
+    <Property Type="String" Name="benchtop_unit15" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice15" />
+    <Property Type="Decimal" Name="benchtop_price15" />
+    <Property Type="Decimal" Name="benchtop_totalprice15" />
+    <Property Type="String" Name="benchtop_range16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color16" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty16" />
+    <Property Type="String" Name="benchtop_unit16" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice16" />
+    <Property Type="Decimal" Name="benchtop_price16" />
+    <Property Type="Decimal" Name="benchtop_totalprice16" />
+    <Property Type="String" Name="benchtop_range17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color17" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty17" />
+    <Property Type="String" Name="benchtop_unit17" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice17" />
+    <Property Type="Decimal" Name="benchtop_price17" />
+    <Property Type="Decimal" Name="benchtop_totalprice17" />
+    <Property Type="String" Name="benchtop_range18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color18" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty18" />
+    <Property Type="String" Name="benchtop_unit18" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice18" />
+    <Property Type="Decimal" Name="benchtop_price18" />
+    <Property Type="Decimal" Name="benchtop_totalprice18" />
+    <Property Type="String" Name="benchtop_range19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color19" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty19" />
+    <Property Type="String" Name="benchtop_unit19" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice19" />
+    <Property Type="Decimal" Name="benchtop_price19" />
+    <Property Type="Decimal" Name="benchtop_totalprice19" />
+    <Property Type="String" Name="benchtop_range20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="benchtop_color20" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_qty20" />
+    <Property Type="String" Name="benchtop_unit20" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="benchtop_unitprice20" />
+    <Property Type="Decimal" Name="benchtop_price20" />
+    <Property Type="Decimal" Name="benchtop_totalprice20" />
+    <Property Type="Decimal" Name="discount" />
+    <Property Type="String" Name="price_title" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="total_cost" />
+    <Property Type="Decimal" Name="C1st_pay_percent" />
+    <Property Type="Decimal" Name="C1st_pay_amount_required" />
+    <Property Type="Decimal" Name="C1st_pay_amount_paid" />
+    <Property Type="DateTime" Name="C1st_pay_date" />
+    <Property Type="Decimal" Name="C2nd_pay_percent" />
+    <Property Type="Decimal" Name="C2nd_pay_amount_required" />
+    <Property Type="Decimal" Name="C2nd_pay_amount_paid" />
+    <Property Type="DateTime" Name="C2nd_pay_date" />
+    <Property Type="Decimal" Name="C3rd_pay_percent" />
+    <Property Type="Decimal" Name="C3rd_pay_amount_required" />
+    <Property Type="Decimal" Name="C3rd_pay_amount_paid" />
+    <Property Type="DateTime" Name="C3rd_pay_date" />
+    <Property Type="DateTime" Name="installation_date" />
+    <Property Type="DateTime" Name="estimated_date" />
+    <Property Type="DateTime" Name="delivery_date" />
+    <Property Type="String" Name="final_note" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created" />
+    <Property Type="String" Name="create_by" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="modified" />
+    <Property Type="String" Name="modify_by" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="is_deleted" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery1" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery2" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery3" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery4" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery5" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery6" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery7" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery8" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery9" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery10" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery11" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery12" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery13" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery14" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery15" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery16" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery17" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery18" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery19" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="appliance_delivery20" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

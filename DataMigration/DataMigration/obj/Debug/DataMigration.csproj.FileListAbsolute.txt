@@ -1,0 +1,8 @@
+D:\Work\fabulous\DataMigration\DataMigration\bin\Debug\DataMigration.exe.config
+D:\Work\fabulous\DataMigration\DataMigration\bin\Debug\DataMigration.exe
+D:\Work\fabulous\DataMigration\DataMigration\bin\Debug\DataMigration.pdb
+D:\Work\fabulous\DataMigration\DataMigration\bin\Debug\EntityFramework.dll
+D:\Work\fabulous\DataMigration\DataMigration\bin\Debug\EntityFramework.xml
+D:\Work\fabulous\DataMigration\DataMigration\obj\Debug\DataMigration.exe
+D:\Work\fabulous\DataMigration\DataMigration\obj\Debug\DataMigration.pdb
+D:\Work\fabulous\DataMigration\DataMigration\obj\Debug\DataMigration.csprojResolveAssemblyReference.cache
